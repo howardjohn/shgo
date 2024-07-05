@@ -1,0 +1,4 @@
+github.com/howardjohn/shgo v0.0.0-20240704230322-cbc50e5f4962 h1:al7LM1kFuSF49EThq4J8flcDzTeze09cPdN95+6JtRw=
+github.com/howardjohn/shgo v0.0.0-20240704230322-cbc50e5f4962/go.mod h1:HU1hBVNhezAove2ci3VmP06tZwBCDG5EPtUgx/QbTGE=
+golang.org/x/sys v0.22.0 h1:RI27ohtqKCnwULzJLqkv897zojh5/DwS/ENaMzUOaWI=
+golang.org/x/sys v0.22.0/go.mod h1:/VUhepiaJMQUp4+oa/7Zr1D23ma6VTLIYjOOTFZPUcA=
