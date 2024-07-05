@@ -2,14 +2,14 @@ package main
 
 import (
 	_ "embed"
-	"github.com/howardjohn/shgo/pkg"
+	"github.com/howardjohn/shgo"
 )
 
-//go:embed script.sh
+//go:embed flamegraph.pl
 var script []byte
 
 func main() {
-	if err := pkg.Exec("hello-world", script); err != nil {
+	if err := shgo.Exec("flamegraph.pl", script); err != nil {
 		panic(err)
 	}
 }

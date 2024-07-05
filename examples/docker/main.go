@@ -2,14 +2,26 @@ package main
 
 import (
 	_ "embed"
-	"github.com/howardjohn/shgo/pkg"
+	"fmt"
+	"github.com/howardjohn/shgo"
 )
 
-//go:embed script.sh
-var script []byte
+// Fetch with `docker pull hello-world; docker save hello-world | zstd > image.zst`
+//go:embed image.zst
+var image []byte
+
+var loadScript = `#!/bin/bash
+docker load -q -i %s > /dev/null
+exec docker run --pull=never hello-world:latest
+`
 
 func main() {
-	if err := pkg.Exec("hello-world", script); err != nil {
+	imageFile, err := shgo.MemFile("image", image)
+	if err != nil {
+		panic(err)
+	}
+	script := fmt.Sprintf(loadScript, imageFile)
+	if err := shgo.Exec("docker", []byte(script)); err != nil {
 		panic(err)
 	}
 }
